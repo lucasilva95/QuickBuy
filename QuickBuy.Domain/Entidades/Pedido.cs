@@ -15,7 +15,7 @@ namespace QuickBuy.Domain.Entidades
         public string Estado { get; set; }
         public string Cidade { get; set; }
         public string EnderecoCompleto { get; set; }
-        public int NumeroEndereco { get; set; }
+        public int? NumeroEndereco { get; set; }
         public int FormaPagamentoId { get; set; }
         public FormaPagamento FormaPagamento { get; set; }
 
@@ -31,10 +31,22 @@ namespace QuickBuy.Domain.Entidades
             LimparMensagensValidacao();
 
             if (!ItensPedido.Any())
-                AdicionarCritica("Crítica: Pedido não pode ficar sem item de pedido.");
+                AdicionarCritica("Pedido não pode ficar sem item de pedido.");
 
             if (string.IsNullOrEmpty(CEP))
-                AdicionarCritica("Crítica: CEP deve estar preenchido.");
+                AdicionarCritica("CEP deve estar preenchido.");
+
+            if (string.IsNullOrEmpty(Cidade))
+                AdicionarCritica("Cidade deve estar preenchida.");
+
+            if (string.IsNullOrEmpty(EnderecoCompleto))
+                AdicionarCritica("Endereço deve estar preenchida.");
+
+            if (NumeroEndereco == null)
+                AdicionarCritica("Número do endereço deve estar preenchido.");
+
+            if (FormaPagamentoId == 0)
+                AdicionarCritica("Não foi informado a forma de pagamento.");
         }
     }
 }

@@ -17,7 +17,19 @@ namespace QuickBuy.Domain.Entidades
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            LimparMensagensValidacao();
+
+            if (string.IsNullOrEmpty(Email))
+                AdicionarCritica("E-mail não informado.");
+
+            if (string.IsNullOrEmpty(Senha))
+                AdicionarCritica("Senha não informada.");
+
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarCritica("Nome não informado.");
+
+            if (string.IsNullOrEmpty(SobreNome))
+                AdicionarCritica("Sobrenome não informado");
         }
     }
 }
