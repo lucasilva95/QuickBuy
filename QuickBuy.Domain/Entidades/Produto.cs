@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public decimal? Preco { get; set; }
+        public decimal Preco { get; set; }
 
         public override void Validate()
         {
@@ -16,9 +16,6 @@
 
             if (string.IsNullOrEmpty(Descricao))
                 AdicionarCritica("Descrição do produto não informada.");
-
-            if (Preco == null)
-                AdicionarCritica("Preço do produto não informado.");
 
             if (Preco <= 0)
                 AdicionarCritica("Preço inválido.");
