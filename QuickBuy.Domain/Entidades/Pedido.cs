@@ -19,6 +19,7 @@ namespace QuickBuy.Domain.Entidades
         public int FormaPagamentoId { get; set; }
         public FormaPagamento FormaPagamento { get; set; }
 
+        public virtual Usuario Usuario { get; set; }
 
         /// <summary>
         /// Pedido deve ter pelo menos um item de pedido
