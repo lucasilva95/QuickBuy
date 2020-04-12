@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200412000128_PrimeiraVersaoBase.cs" />
+    <Compile Remove="Migrations\20200412000128_PrimeiraVersaoBase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\QuickBuy.Domain\QuickBuy.Domain.csproj" />
   </ItemGroup>
 

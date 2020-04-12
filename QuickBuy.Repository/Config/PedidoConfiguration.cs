@@ -38,8 +38,7 @@ namespace QuickBuy.Repository.Config
             builder.Property(p => p.NumeroEndereco)
                     .IsRequired();
 
-            builder.Property(p => p.FormaPagamentoId)
-                    .IsRequired();
+            builder.HasOne(p => p.FormaPagamento);
         }
     }
 }
